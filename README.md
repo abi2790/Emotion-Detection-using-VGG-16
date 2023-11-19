@@ -2,7 +2,7 @@
 
 * This project is about Emotion Detection through facial expressions. CV can recognize and tell you what your emotion is by just looking at your facial expressions. It can detect whether you are angry, happy, sad, etc.
 
-<img src="https://imgur.com/HIr4mDD" width="500" height="500">
+<img src="https://i.imgur.com/HIr4mDD.png" width="500" height="500">
 
 * This computer vision model that we will build using Keras and VGG16 – a variant of Convolutional Neural Network. We will use this model to check the emotions in real-time using OpenCV and webcam. We will be working with JupyterLab to build the model as it gives us the ability to use our System's GPU. You can use any other IDE as well.
 
