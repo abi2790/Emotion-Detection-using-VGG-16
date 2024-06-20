@@ -4,7 +4,7 @@
 
 * Tensorflow libraries are used to implement model training using the device's GPU rather than the CPU. This significantly decreases the training time. The IDE used is JupyterLab.
 
-### The Dataset
+### Dataset used
 
 * Dataset: https://www.kaggle.com/ashishpatel26/facial-expression-recognitionferchallenge  
 
