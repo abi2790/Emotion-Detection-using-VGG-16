@@ -4,9 +4,9 @@ import numpy as np
 from keras.models import model_from_json
 from keras.preprocessing import image
 
-#load model
+#Loading the model
 model = model_from_json(open("model.json", "r").read())
-#load weights
+#Loading the weights
 model.load_weights('model.h5')
 
 
@@ -16,7 +16,7 @@ face_haar_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 cap=cv2.VideoCapture(0)
 
 while True:
-    ret,test_img=cap.read()# captures frame and returns boolean value and captured image
+    ret,test_img=cap.read() #Captures current frame and returns boolean value and the captured image
     if not ret:
         continue
     gray_img= cv2.cvtColor(test_img, cv2.COLOR_BGR2GRAY)
@@ -26,7 +26,7 @@ while True:
 
     for (x,y,w,h) in faces_detected:
         cv2.rectangle(test_img,(x,y),(x+w,y+h),(255,0,0),thickness=7)
-        roi_gray=gray_img[y:y+w,x:x+h]#cropping region of interest i.e. face area from  image
+        roi_gray=gray_img[y:y+w,x:x+h] #Cropping the region of interest i.e. the face from the image
         roi_gray=cv2.resize(roi_gray,(48,48))
         img_pixels = image.img_to_array(roi_gray)
         img_pixels = np.expand_dims(img_pixels, axis = 0)
@@ -34,7 +34,7 @@ while True:
 
         predictions = model.predict(img_pixels)
 
-        #find max indexed array
+        #Finding max indexed array
         max_index = np.argmax(predictions[0])
 
         emotions = ('angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral')
@@ -47,7 +47,7 @@ while True:
 
 
 
-    if cv2.waitKey(10) == ord('q'):#wait until 'q' key is pressed
+    if cv2.waitKey(10) == ord('s'):#waits until 's' key is pressed, signifying a stop
         break
 
 cap.release()
